@@ -3,14 +3,15 @@
 {{ $sorted := sort $posts "Date" "desc" }}
 {{ $paginator := .Paginate $sorted }}
 
-<div class="section-header section-header-base">
-        <div class="container">
-          <h1 class="Contentpage">Aktuelle Projekte:</h1>
-        </div>
-</div>
+{{ if not .IsHome }}
+       <div class="container">
+           <a href="/" onclick="history.back(); return false;" class="back-btn">
+               ← Zurück
+           </a>
+       </div>
+{{ end }}
 
 <div class="container">
-
     
 
  {{ range $paginator.Pages }}
@@ -41,7 +42,7 @@
                     </small>
 
                     <p class="card-text mt-2">
-                    {{ .Summary }}
+                    {{ .Summary  | truncate 250 }}
                     </p>
 
                     <a href="{{ .Permalink }}" class="btn btn-sm btn-outline-primary">
