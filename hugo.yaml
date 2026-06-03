@@ -3,8 +3,9 @@ defaultContentLanguage: de
 title: 'Förderverein'
 theme: 'hugo-landing-sections'
 
-author:
-  name: Tom
+params:
+  author:
+    name: Tom
 
 languages:
   de:
